@@ -4,12 +4,17 @@ import numpy as np
 
 # задание 1
 img = cv2.imread('pears.png')
-res_img = cv2.resize(img, (486, 732), cv2.INTER_NEAREST)
 
-cv2.imshow('res', img)
-cv2.waitKey(0)
+cv2.imwrite('img.jpg', img)
+cv2.imwrite("compressed_image.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 10])
 
-print(img.shape)
-cv2.imwrite('C:\с диска д вся инфа\img.png', img)
+gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+cv2.imwrite('img.png', gray)
+
+img_2bit = cv2.convertScaleAbs(img, alpha=(24.0/6.0))
+cv2.imwrite('img_2bit.png', img_2bit)
+
+
+
 
 
