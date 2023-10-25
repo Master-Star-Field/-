@@ -1,5 +1,10 @@
-def fun_alex(self):
-    clown = sio.loadmat('clown.mat')
+def fun_alex(image):
+
+    import numpy as np
+    import cv2
+    import scipy.io as sio
+
+    clown = sio.loadmat(image)
     print(clown['X'][1][80])
 
     matrix = np.zeros(shape=(200, 320, 3), dtype=np.float32)
@@ -13,7 +18,6 @@ def fun_alex(self):
     for i in range(0, 199):
         for j in range(0, 319):
             m_1 = clown['X'][i][j]
-            print(m_1)
             matrix[i][j][2] = clown['map'][clown['X'][i][j] - 1][0]
             matrix[i][j][1] = clown['map'][clown['X'][i][j] - 1][1]
             matrix[i][j][0] = clown['map'][clown['X'][i][j] - 1][2]
@@ -21,4 +25,4 @@ def fun_alex(self):
     # matrix = cv2.cvtColor(matrix, cv2.COLOR_HSV2BGR)
 
     cv2.imshow('res', matrix)
-    cv2.waitKey(0)
+    #cv2.waitKey(0)
