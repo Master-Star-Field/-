@@ -40,3 +40,7 @@ plt.show()
 f = r"1.gif"
 writergif = animation.PillowWriter(fps=numDataPoints/6)
 line_ani.save(f, writer=writergif)
+
+'''
+
+'''
