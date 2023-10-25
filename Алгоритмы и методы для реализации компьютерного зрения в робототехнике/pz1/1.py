@@ -1,6 +1,8 @@
 #first test
+import random
 import cv2
 import numpy as np
+import scipy.io as sio
 
 # задание 1
 img = cv2.imread('pears.png')
@@ -50,7 +52,43 @@ print(f'A1 - B1: {gray_2[328][208] - gray_2[328][778]}')
 print(f'A2 - B2: {gray_2[378][228] - gray_2[378][798]}')
 print('Обе пары точек не имеют между собой расхождения по яркости')
 
-cv2.imshow('res', img_2)
+# cv2.imshow('res', img_2)
+# cv2.waitKey(0)
+
+
+"""--------------------------------- 4 ЗАДАЧА ----------------------------------------"""
+
+arr = np.zeros((6, 6))
+for i in range(0, 6):
+    for j in range(0, 6):
+        arr[j][i] = random.random()*21.0 - 10.5
+arr.astype(np.int32)
+
+# cv2.imshow('res', arr)
+# cv2.waitKey(0)
+
+"""-------------------------------- 5 ЗАДАЧА -------------------------------------------"""
+
+clown = sio.loadmat('clown.mat')
+print(clown['X'][1][80])
+
+matrix = np.zeros(shape=(200, 320, 3), dtype=np.float32)
+print(matrix.shape)
+
+# clown_1 = clown['X'].reshape(64000, 1)
+# print(clown['X'][80][0])
+# print(clown_1[np.argmax(clown_1)])
+# print(clown['map'][80][1])
+
+for i in range(0, 199):
+    for j in range(0, 319):
+        m_1 = clown['X'][i][j]
+        print(m_1)
+        matrix[i][j][2] = clown['map'][ clown['X'][i][j] - 1][0]
+        matrix[i][j][1] = clown['map'][ clown['X'][i][j] - 1][1]
+        matrix[i][j][0] = clown['map'] [clown['X'][i][j] - 1][2]
+
+# matrix = cv2.cvtColor(matrix, cv2.COLOR_HSV2BGR)
+
+cv2.imshow('res', matrix)
 cv2.waitKey(0)
-
-
