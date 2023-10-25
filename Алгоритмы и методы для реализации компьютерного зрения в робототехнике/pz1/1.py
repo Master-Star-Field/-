@@ -67,6 +67,8 @@ arr.astype(np.int32)
 # cv2.imshow('res', arr)
 # cv2.waitKey(0)
 
+
+
 """-------------------------------- 5 ЗАДАЧА -------------------------------------------"""
 
 clown = sio.loadmat('clown.mat')
