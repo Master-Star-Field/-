@@ -3,6 +3,7 @@ def show_mat(image):
     from PIL import Image
 
     data = loadmat(image)
+    print(data)
     pixels = data .get('X')
     colors = data['map']
 
@@ -18,4 +19,4 @@ def show_mat(image):
         for j in range(height):
             c = dict_colors[pixels[j][i]]
             res[i, j] = (int(255 * c[0]), int(255 * c[1]), int(255 * c[2]))
-    #image.show()
+    image.show()
