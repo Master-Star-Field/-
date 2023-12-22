@@ -13,7 +13,7 @@ _, th1 = cv2.threshold(blur, 100, 255, cv2.THRESH_BINARY)
 _, th2 = cv2.threshold(image, 100, 255, cv2.THRESH_BINARY)
 
 # Метод автоматического определения порога
-th3 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+th3 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 20)
 
 # Отображение результатов с помощью subplots
 plt.figure(figsize=(10, 5))

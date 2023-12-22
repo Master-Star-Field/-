@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-# Сегментация монохромного изображения c a m e ra m a n . t i f на три региона
+
 def kmeans_mono():
     # Загрузка монохромного изображения
     image = cv2.imread('pic.png', 0)
